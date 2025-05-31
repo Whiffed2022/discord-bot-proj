@@ -418,7 +418,7 @@ client.on('interactionCreate', async interaction => {
                     })
                     .setTimestamp();
 
-                await interaction.reply({ embeds: [helpEmbed] });
+                await interaction.reply({ embeds: [helpEmbed], ephemeral: true });
                 break;
 
             case 'mytime':
