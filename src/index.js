@@ -78,7 +78,14 @@ function formatMonthlyReport(users, guild, month, year) {
         const name = member ? member.displayName : `Unknown User (ID: ${user.user_id})`;
         const totalHoursFormatted = formatDuration(user.total_seconds);
         const avgShift = user.shifts_completed > 0 ? formatDuration(user.total_seconds / user.shifts_completed) : '0h 0m';
-        report += `${index + 1}. ${name}\n`;
+
+        // Add trophy emoji for top 3 positions
+        let trophyEmoji = '';
+        if (index === 0) trophyEmoji = '🥇 ';
+        else if (index === 1) trophyEmoji = '🥈 ';
+        else if (index === 2) trophyEmoji = '🥉 ';
+
+        report += `${trophyEmoji}${index + 1}. ${name}\n`;
         report += `   Total Hours: ${totalHoursFormatted}\n`;
         report += `   Shifts: ${user.shifts_completed}\n`;
         report += `   Average Shift: ${avgShift}\n\n`;
@@ -560,7 +567,14 @@ async function formatMonthlyReportAsync(users, guild, month, year) {
         const name = member ? member.displayName : `Unknown User (ID: ${user.user_id})`;
         const totalHoursFormatted = formatDuration(user.total_seconds);
         const avgShift = user.shifts_completed > 0 ? formatDuration(user.total_seconds / user.shifts_completed) : '0h 0m';
-        report += `${index + 1}. ${name}\n`;
+
+        // Add trophy emoji for top 3 positions
+        let trophyEmoji = '';
+        if (index === 0) trophyEmoji = '🥇 ';
+        else if (index === 1) trophyEmoji = '🥈 ';
+        else if (index === 2) trophyEmoji = '🥉 ';
+
+        report += `${trophyEmoji}${index + 1}. ${name}\n`;
         report += `   Total Hours: ${totalHoursFormatted}\n`;
         report += `   Shifts: ${user.shifts_completed}\n`;
         report += `   Average Shift: ${avgShift}\n\n`;
