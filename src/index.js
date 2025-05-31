@@ -340,6 +340,80 @@ client.on('interactionCreate', async interaction => {
                 await interaction.reply({ embeds: [weeklyLeaderboardEmbed] });
                 break;
 
+            case 'help':
+                const helpEmbed = new EmbedBuilder()
+                    .setColor('#0099ff')
+                    .setTitle('🚑 EMS Bot Commands Help')
+                    .setDescription('Complete list of available commands for the EMS Clock-in/Clock-out Bot')
+                    .setThumbnail(client.user.displayAvatarURL())
+                    .addFields({
+                        name: '⏰ **Time Tracking Commands**',
+                        value: '`/clockin [ridealong_with]` - Clock in for your EMS shift\n' +
+                            '• Optional: Tag another EMS member you\'re riding with\n' +
+                            '• Displays clock-in time in EST/EDT\n\n' +
+                            '`/clockout` - Clock out from your EMS shift\n' +
+                            '• Shows detailed session summary with duration\n' +
+                            '• Displays monthly totals and shift count\n' +
+                            '• Automatically deletes your clock-in message\n\n' +
+                            '`/setridealong [user]` - Update your ridealong partner\n' +
+                            '• Set, change, or clear who you\'re riding with\n' +
+                            '• Must be clocked in to use this command\n' +
+                            '• Omit user parameter to clear ridealong',
+                        inline: false
+                    }, {
+                        name: '📊 **Statistics & Leaderboards**',
+                        value: '`/mytime` - View your personal duty time statistics\n' +
+                            '• Shows total hours and shifts for current month\n\n' +
+                            '`/top10` - Display monthly leaderboard\n' +
+                            '• Top 10 EMS members by duty time this month\n' +
+                            '• Shows hours worked and number of shifts\n\n' +
+                            '`/weeklytop` - Display weekly leaderboard\n' +
+                            '• Top 10 EMS members by duty time in past 7 days\n' +
+                            '• Real-time weekly performance tracking\n\n' +
+                            '`/searchuser <user>` - Look up another member\'s stats\n' +
+                            '• View total time and shifts for current month\n' +
+                            '• Available to all EMS members',
+                        inline: false
+                    }, {
+                        name: '👥 **Roster & Status Commands**',
+                        value: '`/onduty` - View currently active EMS members\n' +
+                            '• Shows who\'s clocked in and for how long\n' +
+                            '• Displays ridealong partnerships\n' +
+                            '• Real-time duty roster with shift durations',
+                        inline: false
+                    }, {
+                        name: '⚙️ **Admin Commands**',
+                        value: '`/modifytime <user> <hours> <minutes> <reason>` - Modify user time\n' +
+                            '• Add or subtract time from a member\'s record\n' +
+                            '• Requires admin role permissions\n' +
+                            '• All modifications are logged for accountability\n' +
+                            '• Use negative values to subtract time',
+                        inline: false
+                    }, {
+                        name: '📅 **Automated Features**',
+                        value: '• **Monthly Reset**: Time tracking resets automatically on the 1st\n' +
+                            '• **Monthly Reports**: Detailed reports sent to admin channel\n' +
+                            '• **Message Cleanup**: Clock-in messages auto-deleted on clock-out\n' +
+                            '• **Real-time Updates**: All statistics update immediately',
+                        inline: false
+                    }, {
+                        name: '💡 **Usage Tips**',
+                        value: '• Only EMS role members can use time tracking commands\n' +
+                            '• All times are displayed in EST/EDT timezone\n' +
+                            '• You can update your ridealong partner mid-shift\n' +
+                            '• Use `/help` anytime to see this command list\n' +
+                            '• Contact admins if you experience any issues',
+                        inline: false
+                    })
+                    .setFooter({
+                        text: `Requested by ${member.displayName} • EMS Bot v1.0`,
+                        iconURL: member.user.displayAvatarURL()
+                    })
+                    .setTimestamp();
+
+                await interaction.reply({ embeds: [helpEmbed] });
+                break;
+
             case 'mytime':
                 const userTimeStats = await db.getUserTime(user.id);
                 const myTimeEmbed = new EmbedBuilder()

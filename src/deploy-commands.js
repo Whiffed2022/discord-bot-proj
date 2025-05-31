@@ -48,6 +48,10 @@ const commands = [{
         description: 'Display the top 10 EMS members with the most time on duty in the past week'
     },
     {
+        name: 'help',
+        description: 'Display all available commands and their descriptions'
+    },
+    {
         name: 'mytime',
         description: 'Display your total time on duty this month'
     },

@@ -126,7 +126,7 @@ Monthly EMS Duty Report - [Month Year]
 - `/top10` - Display leaderboard for the current month.
 - `/weeklytop` - Display leaderboard for the past week (7 days).
 - `/mytime` - Show personal time statistics for the current month.
-- `/help` - Display command information.
+- `/help` - Display comprehensive help with all available commands, organized by category with detailed descriptions.
 - `/modifytime <user> <hours> <minutes> <reason>` - [Admin Only] Modify a user's time records.
 
 ## Error Handling

@@ -52,6 +52,7 @@ A Discord bot for tracking EMS member clock-in/clock-out times, generating month
 -   `/top10` - Displays the top 10 EMS members by duty time for the current month.
 -   `/weeklytop` - Displays the top 10 EMS members by duty time for the past week (7 days).
 -   `/mytime` - Displays your personal duty time statistics for the current month.
+-   `/help` - Displays comprehensive help with all available commands and descriptions.
 -   `/modifytime <user> <hours> <minutes> <reason>` - **[Admin Only]** Modifies a user's recorded time.
 
 ## Monthly Reset & Reporting
