@@ -1,0 +1,15 @@
+{
+    "name": "ems-clock-bot",
+    "version": "1.0.0",
+    "description": "Discord bot for tracking EMS member clock-in/clock-out times",
+    "main": "src/index.js",
+    "scripts": {
+        "start": "node src/index.js"
+    },
+    "dependencies": {
+        "discord.js": "^14.14.1",
+        "sqlite3": "^5.1.7",
+        "moment": "^2.30.1",
+        "dotenv": "^16.4.1"
+    }
+}
