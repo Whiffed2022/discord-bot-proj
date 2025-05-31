@@ -300,7 +300,7 @@ client.on('interactionCreate', async interaction => {
                 const topUsers = await db.getTopUsers(10);
                 const leaderboardEmbed = new EmbedBuilder()
                     .setColor('#0099ff')
-                    .setTitle('Top 10 EMS Members - Current Month')
+                    .setTitle('🏆 Top 10 EMS Members - Current Month')
                     .setDescription('Based on total time on duty')
                     .setTimestamp();
 
